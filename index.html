@@ -12,7 +12,9 @@
                 duration: { type: 'float', default: 2 },
                 offset: { type: 'string', default: "2 0 0" },
                 forwardTrigger: { type: 'selector' },
-                backwardTrigger: { type: 'selector' }
+                backwardTrigger: { type: 'selector' },
+                toShow: { type: 'float', default: 1 }
+
             },
             //using events ensures that event handlers properly clean themselves up when the entity or scene is paused, or the component is detached.
             events: {
@@ -50,7 +52,6 @@
                 //changing forwardTriggerId and backwardTriggerId does not need rebuilding but, but listeners are to be managed correctly
                 //assigning the value of this to a variable because it will change
                 var slideshow = this;
-                console.log(data.forwardTrigger)
                 //removing old listeners if the id changes
                 if (oldData.forwardTrigger && data.forwardTrigger !== oldData.forwardTrigger) {
                     data.forwardTrigger.removeEventListener("click", slideshow.triggerSlideForward.bind(slideshow));
@@ -91,21 +92,56 @@
                     lastPosition = nextPosition;
                     nextPosition.addVectors(lastPosition, distanceVector);
                 }
+                //update visibility of elements according to index
+                this.updateVisibility();
                 return;
             },
             triggerSlideForward: function () {
-                this.el.emit("slideForward")
+                var data = this.data;
+                var el = this.el;
+
+                if (data.state == "still")
+                    this.el.emit("slideForward")
             },
             triggerSlideBackward: function () {
-                this.el.emit("slideBackward")
+                var data = this.data;
+                var el = this.el;
+
+                if (data.state == "still")
+                    this.el.emit("slideBackward")
             },
             startSlidingForward: function () {
                 var data = this.data;
+                var slideEl_collection = this.slideEl_collection;
+                var slideEl_collection_length = this.slideEl_collection_length;
+                var distanceVector = this.distanceVector;
+
+                //update index
+                for (i = 0; i < slideEl_collection_length; i++) {
+                    slideEl_collection[i].index++;
+                    //the element goes outside the limit
+                    if (slideEl_collection[i].index == slideEl_collection_length) {
+                        slideEl_collection[i].setAttribute("visible", "true");
+                        slideEl_collection[i].index = -1;
+                        slideEl_collection[i].object3D.position.set(slideEl_collection[i].index * distanceVector.x, slideEl_collection[i].index * distanceVector.y, slideEl_collection[i].index * distanceVector.z);
+                        slideEl_collection[i].index++;
+                    }
+                }
                 //sets the slider state to slidingForward
                 data.state = "slidingForward";
             },
             startSlidingBackward: function () {
                 var data = this.data;
+                var slideEl_collection = this.slideEl_collection;
+                var slideEl_collection_length = this.slideEl_collection_length;
+                var distanceVector = this.distanceVector;
+
+                for (i = 0; i < slideEl_collection_length; i++) {
+                    //the element goes outside the limit
+                    if (slideEl_collection[i].index == data.toShow) {
+                        slideEl_collection[i].setAttribute("visible", "true");
+                    }
+                }
                 //sets the slider state to slidingBackward
                 data.state = "slidingBackward";
             },
@@ -136,19 +172,31 @@
                 this.animationStartingTime = null;
                 return;
             },
+            updateVisibility: function () {
+                var data = this.data;
+                var slideEl_collection = this.slideEl_collection;
+                var slideEl_collection_length = this.slideEl_collection_length;
+
+                for (i = 0; i < slideEl_collection_length; i++) {
+                    if (slideEl_collection[i].index < data.toShow) {
+                        slideEl_collection[i].setAttribute("visible", "true");
+                    }
+                    if (slideEl_collection[i].index >= data.toShow) {
+                        slideEl_collection[i].setAttribute("visible", "false");
+                    }
+                }
+
+            },
             moveForward: function () {
                 var slideEl_collection = this.slideEl_collection;
                 var slideEl_collection_length = this.slideEl_collection_length;
                 var distanceVector = this.distanceVector;
 
                 for (i = 0; i < slideEl_collection_length; i++) {
-                    slideEl_collection[i].index++;
-                    //the element goes outside the limit
-                    if (slideEl_collection[i].index == slideEl_collection_length) {
-                        slideEl_collection[i].index = 0;
-                    }
                     slideEl_collection[i].object3D.position.set(slideEl_collection[i].index * distanceVector.x, slideEl_collection[i].index * distanceVector.y, slideEl_collection[i].index * distanceVector.z);
                 }
+                //update visibility of elements according to index
+                this.updateVisibility()
             },
             moveBackward: function () {
                 var slideEl_collection = this.slideEl_collection;
@@ -163,6 +211,8 @@
                     }
                     slideEl_collection[i].object3D.position.set(slideEl_collection[i].index * distanceVector.x, slideEl_collection[i].index * distanceVector.y, slideEl_collection[i].index * distanceVector.z);
                 }
+                //update visibility of elements according to index
+                this.updateVisibility()
             },
             animateForward: function (deltaX, deltaY, deltaZ) {
                 var slideEl_collection = this.slideEl_collection;
