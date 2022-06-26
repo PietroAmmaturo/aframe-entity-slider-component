@@ -10,11 +10,12 @@ For [A-Frame](https://aframe.io).
 ### API
 
 | Property | Description | Default Value |
-| duration | animation duration (in seconds) | 2 |
-|offset|vector connecting previous element to next element|2 0 0|
-|forwardTrigger|selector to the forward trigger|mandatory|
-|backwardTrigger|selector to the forward trigger|mandatory|
-|toShow|how many elements to show at once|4|
+|-------------|--------------------|------|
+| **duration** | animation duration (in seconds) | 2 |
+|**offset**|vector connecting previous element to next element|2 0 0|
+|**forwardTrigger**|selector to the forward trigger|mandatory|
+|**backwardTrigger**|selector to the forward trigger|mandatory|
+|**toShow**|how many elements to show at once|4|
 
 ### Installation
 
