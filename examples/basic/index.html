@@ -3,70 +3,47 @@
 
 <head>
   <meta charset="utf-8">
-  <title>A-Frame slideshow Component</title>
-  <meta name="description" content="Used to create a slideshow of aframe entities">
+  <title>A-Frame slideshow Component - Basic</title>
+  <meta name="description" content="Basic example for slideshow component.">
   </meta>
-  <style>
-    html {
-      background: #33425B;
-      color: #FAFAFA;
-      font-family: monospace;
-      font-size: 20px;
-      padding: 10px 20px;
-    }
-
-    h1 {
-      font-weight: 300;
-    }
-
-    a {
-      color: #FAFAFA;
-      display: block;
-      padding: 15px 0;
-    }
-
-    img {
-      max-width: 320px;
-    }
-
-    ul {
-      display: flex;
-      list-style: none;
-      flex-wrap: wrap;
-      padding: 5px 0 0;
-    }
-
-    ul li {
-      margin-right: 30px;
-      padding: 5px 0 30px;
-    }
-
-    ul a {
-      background-size: cover;
-      display: block;
-      padding: 0;
-      height: 320px;
-      width: 320px;
-    }
-
-    ul h3,
-    ul p {
-      max-width: 320px;
-    }
-  </style>
+  <script src="https://aframe.io/releases/1.3.0/aframe.min.js"></script>
+  <script src="../../dist/aframe-slideshow-component.min.js"></script>
+  <script src="https://unpkg.com/aframe-environment-component@1.3.1/dist/aframe-environment-component.min.js"></script>
 </head>
 
 <body>
-  <h1>A-Frame slideshow Component</h1>
+  <a-scene environment="preset: forest">
+    <!-- camera -->
+    <a-entity id="head" camera="fov: 80; active: true" position="0 1.65 0" wasd-controls="acceleration: 20;"
+              look-controls="pointerLockEnabled: true; reverseMouseDrag: false">
+      <a-entity id="cursor" cursor raycaster="far: 10; objects: .clickable" material="color: grey; shader: flat"
+                position="0 0 -0.3" geometry="primitive: sphere; radius: 0.001">
+      </a-entity>
+    </a-entity>
 
-  <ul>
-    <li>
-      <a href="examples/basic/"
-         style="background-image: url(https://cloud.githubusercontent.com/assets/674727/24217331/ba3d5b86-0efc-11e7-8a7c-ac74b3f35a65.png)"></a>
-      <h3>Basic</h3>
-      <p>This is a basic example.</p>
-    </li>
-  </ul>
+    <a-entity id="slider" position="-3 2 -5" slideshow="backwardTrigger: #leftTrigger; forwardTrigger: #rightTrigger;">
+      <a-box color="#88AAFF">
+      </a-box>
+      <a-box color="#FFAA88">
+      </a-box>
+      <a-box color="#AAFF88">
+      </a-box>
+      <a-box color="#AA88FF">
+      </a-box>
+      <a-box color="#44AAFF">
+      </a-box>
+      <a-box color="#FFAA44">
+      </a-box>
+      <a-box color="#88FFAA">
+      </a-box>
+      <a-box color="#FF88AA">
+      </a-box>
+    </a-entity>
+    <a-entity position="0 1 -1" scale="0.2 0.2 0.2">
+      <a-cylinder class="clickable"  position="-2 0 0" color="cyan" segments-radial="3" rotation ="0 40 0" id="leftTrigger"></a-cylinder>
+      <a-cylinder class="clickable"  position="2 0 0" color="crimson" segments-radial="3" rotation ="0 -40 0" id="rightTrigger"></a-cylinder>
+    </a-entity>
+  </a-scene>
 
   <!-- GitHub Corner. -->
   <a href="https://github.com/PietroAmmaturo/aframe-slideshow-component" class="github-corner">
@@ -112,6 +89,7 @@
       }
     }
   </style>
+  <!-- End GitHub Corner. -->
 </body>
 
 </html>
