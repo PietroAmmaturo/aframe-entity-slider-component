@@ -12,7 +12,7 @@ module.exports = {
   output: {
     globalObject: 'this',
     path: __dirname + '/dist',
-    filename: process.env.NODE_ENV === 'production' ? 'aframe-slideshow-component.min.js' : 'aframe-slideshow-component.js',
+    filename: process.env.NODE_ENV === 'production' ? 'aframe-entity-slider-component.min.js' : 'aframe-entity-slider-component.js',
     libraryTarget: 'umd'
   },
   plugins: PLUGINS,

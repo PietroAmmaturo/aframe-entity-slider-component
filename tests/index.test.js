@@ -3,18 +3,18 @@ require('aframe');
 require('../index.js');
 var entityFactory = require('./helpers').entityFactory;
 
-suite('slideshow component', function () {
+suite('entity-slider component', function () {
   var component;
   var el;
 
   setup(function (done) {
     el = entityFactory();
     el.addEventListener('componentinitialized', function (evt) {
-      if (evt.detail.name !== 'slideshow') { return; }
-      component = el.components['slideshow'];
+      if (evt.detail.name !== 'entity-slider') { return; }
+      component = el.components['entity-slider'];
       done();
     });
-    el.setAttribute('slideshow', {});
+    el.setAttribute('entity-slider', {});
   });
 
   suite('foo property', function () {

@@ -1,3 +1,5 @@
+
+
 /* global AFRAME */
 
 if (typeof AFRAME === 'undefined') {
@@ -5,9 +7,9 @@ if (typeof AFRAME === 'undefined') {
 }
 
 /**
- * slideshow component for A-Frame.
+ * entity-slider component for A-Frame.
  */
-AFRAME.registerComponent('slideshow', {
+AFRAME.registerComponent('entity-slider', {
   schema: {},
 
   /**

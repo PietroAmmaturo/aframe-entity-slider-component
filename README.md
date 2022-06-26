@@ -1,9 +1,9 @@
-## aframe-slideshow-component
+## aframe-entity-slider-component
 
-[![Version](http://img.shields.io/npm/v/aframe-slideshow-component.svg?style=flat-square)](https://npmjs.org/package/aframe-slideshow-component)
-[![License](http://img.shields.io/npm/l/aframe-slideshow-component.svg?style=flat-square)](https://npmjs.org/package/aframe-slideshow-component)
+[![Version](http://img.shields.io/npm/v/aframe-entity-slider-component.svg?style=flat-square)](https://npmjs.org/package/aframe-entity-slider-component)
+[![License](http://img.shields.io/npm/l/aframe-entity-slider-component.svg?style=flat-square)](https://npmjs.org/package/aframe-entity-slider-component)
 
-Used to create a slideshow of aframe entities
+Used to create a entity-slider of aframe entities
 
 For [A-Frame](https://aframe.io).
 
@@ -29,12 +29,12 @@ Install and use by directly including the [browser files](dist):
 <head>
   <title>My A-Frame Scene</title>
   <script src="https://aframe.io/releases/1.3.0/aframe.min.js"></script>
-  <script src="https://unpkg.com/aframe-slideshow-component@1.0.0/dist/aframe-slideshow-component.min.js"></script>
+  <script src="https://unpkg.com/aframe-entity-slider-component@1.0.0/dist/aframe-entity-slider-component.min.js"></script>
 </head>
 
 <body>
   <a-scene>
-    <a-entity id="slider" position="-3 2 -5" slideshow="backwardTrigger: #left; forwardTrigger: #right;">
+    <a-entity id="slider" position="-3 2 -5" entity-slider="backwardTrigger: #left; forwardTrigger: #right;">
       <!--slides-->
     </a-entity>
     <a-entity position="0 1 -1" scale="0.2 0.2 0.2">
@@ -51,12 +51,12 @@ Install and use by directly including the [browser files](dist):
 Install via npm:
 
 ```bash
-npm install aframe-slideshow-component
+npm install aframe-entity-slider-component
 ```
 
 Then require and use.
 
 ```js
 require('aframe');
-require('aframe-slideshow-component');
+require('aframe-entity-slider-component');
 ```
