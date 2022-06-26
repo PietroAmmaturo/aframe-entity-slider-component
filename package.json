@@ -1,7 +1,7 @@
 {
   "name": "aframe-entity-slider-component",
   "version": "1.0.0",
-  "description": "Used to create a entity-slider of aframe entities",
+  "description": "Entity slider for aframe",
   "main": "index.js",
   "unpkg": "dist/aframe-entity-slider-component.min.js",
   "scripts": {

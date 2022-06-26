@@ -1,5 +1,3 @@
-
-
 /* global AFRAME */
 
 if (typeof AFRAME === 'undefined') {
