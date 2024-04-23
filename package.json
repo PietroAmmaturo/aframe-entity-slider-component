@@ -1,7 +1,7 @@
 {
-  "name": "aframe-entity-slider-component",
+  "name": "aframe-entity-slidr-component",
   "version": "1.0.0",
-  "description": "Entity slider for aframe",
+  "description": "A Entity Slider component for A-Frame.",
   "main": "index.js",
   "unpkg": "dist/aframe-entity-slider-component.min.js",
   "scripts": {
@@ -19,7 +19,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/PietroAmmaturo/aframe-entity-slider-component.git"
+    "url": "git+https://github.com/myusername/aframe-entity-slider-component.git"
   },
   "keywords": [
     "aframe",
@@ -30,12 +30,12 @@
     "webxr",
     "entity-slider"
   ],
-  "author": "Pietro Ammaturo <pietroammaturo.github.io>",
+  "author": "Jane John <jj@foo.com>",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/PietroAmmaturo/aframe-entity-slider-component/issues"
+    "url": "https://github.com/myusername/aframe-entity-slider-component/issues"
   },
-  "homepage": "https://github.com/PietroAmmaturo/aframe-entity-slider-component#readme",
+  "homepage": "https://github.com/myusername/aframe-entity-slider-component#readme",
   "dependencies": {
     "@babel/cli": "^7.2.3",
     "@babel/core": "^7.3.3",
@@ -80,12 +80,12 @@
     "shelljs": "^0.7.0",
     "shx": "^0.1.1",
     "shx": "^0.2.2",
-    "sinon": "^1.17.5",
+    "sinon": "^2.1.0 ",
     "sinon-chai": "^2.8.0",
     "snazzy": "7.0.0",
     "snazzy": "^4.0.0",
     "superagent": "^3.8.2",
-    "webpack": "^4.29.5",
+    "webpack": "^5.1.4",
     "webpack-cli": "*",
     "webpack-dev-server": "^3.2.0",
     "webpack-sources": "1.0.1"
