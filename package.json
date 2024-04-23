@@ -1,5 +1,5 @@
 {
-  "name": "aframe-entity-slidr-component",
+  "name": "aframe-entity-slider-component",
   "version": "1.0.0",
   "description": "A Entity Slider component for A-Frame.",
   "main": "index.js",
@@ -19,7 +19,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/myusername/aframe-entity-slider-component.git"
+    "url": "git+https://github.com/PietroAmmaturo/aframe-entity-slider-component.git"
   },
   "keywords": [
     "aframe",
@@ -33,9 +33,9 @@
   "author": "Jane John <jj@foo.com>",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/myusername/aframe-entity-slider-component/issues"
+    "url": "https://github.com/PietroAmmaturo/aframe-entity-slider-component/issues"
   },
-  "homepage": "https://github.com/myusername/aframe-entity-slider-component#readme",
+  "homepage": "https://github.com/PietroAmmaturo/aframe-entity-slider-component#readme",
   "dependencies": {
     "@babel/cli": "^7.2.3",
     "@babel/core": "^7.3.3",

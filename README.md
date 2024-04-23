@@ -1,7 +1,6 @@
 ## aframe-entity-slider-component
 
-[![Version](http://img.shields.io/npm/v/aframe-entity-slider-component.svg?style=flat-square)](https://npmjs.org/package/aframe-entity-slider-component)
-[![License](http://img.shields.io/npm/l/aframe-entity-slider-component.svg?style=flat-square)](https://npmjs.org/package/aframe-entity-slider-component)
+[![Version](http://img.shields.io/npm/v/aframe-entity-slider-component.svg)](https://www.npmjs.com/package/aframe-entity-slider-component)
 
 Used to create a entity-slider of aframe entities
 
